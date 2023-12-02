@@ -6,15 +6,6 @@
 
 // The test cases are generated so that the length of the output will never exceed 10^5.
 
-// Intuition:
-// Create two stacks, for strings and numbers.
-
-// push string until a closing bracket is seen, when a closing bracket appears pop out the character until the opening bracket is seen.
-
-// Since it is sure that we will see a number just before the opening bracket, go to the number stack and pop out the top of the number stack and repeat the recently popped string that number times.
-
-// push the decoded string yet to the string stack back and repeat the same process.
-
 #include <bits/stdc++.h>
 using namespace std;
 
