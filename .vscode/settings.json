@@ -4,6 +4,7 @@
         "*.embeddedhtml": "html",
         "deque": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "*.tcc": "cpp"
     }
 }

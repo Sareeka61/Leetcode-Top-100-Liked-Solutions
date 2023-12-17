@@ -11,7 +11,9 @@
  * };
  */
 
-
+#include <bits/stdc++.h>
+#include "/leetcode/precompiled/ListNode.h"
+using namespace std;
 
 class Solution {
 public:
