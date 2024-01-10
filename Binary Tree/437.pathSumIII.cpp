@@ -23,33 +23,25 @@ using namespace std;
 
 class Solution {
 public:
-    int pathSum(TreeNode* root, int targetSum) {
-       if(!root)
+   int pathSumfromRoot(TreeNode* root, long int targetSum) {
+    int count = 0;
+    if(root->val == targetSum) 
+        count++;
+    if(root->left) {
+        count += pathSumFromRoot(root->left, targetSum-root->val);
+    }
+    if(root->right) {
+        count += pathSumfromRoot(root->right, targetSum-root->val);
+    }
+    return count;
+   }
+
+   int pathSum(TreeNode* root, int targetSum) {
+    if(!root)
         return 0;
-
-        long long pathsFromRoot = countPaths(root, targetSum);
-
-        long long pathsFromLeft = pathSum(root->left, targetSum);
-        long long pathsFromRight = pathSum(root->right, targetSum);
-
-        return static_cast<int>(pathsFromRoot + pathsFromLeft + pathsFromRight); 
-    }
-
-private:
-    long long countPaths(TreeNode* node, int targetSum) {
-        if(!node) {
-            return 0;
-        }
-
-        long long paths = 0;
-
-        if(node->val == targetSum) {
-            paths++;
-        }
-
-        paths += countPaths(node->left, targetSum - node->val);
-        paths += countPaths(node->right, targetSum - node->val);
-
-        return paths;
-    }
+    int count = pathSumfromRoot(root, targetSum);
+    count += pathSum(root->left, targetSum);
+    count += pathSum(root->right, targetSum);
+    return count;
+   }
 };
